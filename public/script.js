@@ -4,11 +4,14 @@ const playBtn = document.getElementById('playBtn');
 
 const getGenres = () => {
   const genreRequestEndpoint = "/genre/movie/list";
+  const requestParams = "?api_key=" + tmdbKey;
+  const urlToFetch = tmdbBaseUrl + genreRequestEndpoint + requestParams;
+
 };
 
 const getMovies = () => {
   const selectedGenre = getSelectedGenre();
-  const requestParams = "?api_key=" + tmdbKey;
+  
 };
 
 const getMovieInfo = () => {
