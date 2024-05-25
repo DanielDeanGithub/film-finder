@@ -8,7 +8,7 @@ const getGenres = () => {
 
 const getMovies = () => {
   const selectedGenre = getSelectedGenre();
-
+  const requestParams = "?api_key=" + tmdbKey;
 };
 
 const getMovieInfo = () => {
