@@ -1,4 +1,4 @@
-const tmdbKey = '';
+const tmdbKey = config.API_KEY;
 const tmdbBaseUrl = '';
 const playBtn = document.getElementById('playBtn');
 
