@@ -1,5 +1,5 @@
 const tmdbKey = config.API_KEY;
-const tmdbBaseUrl = '';
+const tmdbBaseUrl = 'https://api.themoviedb.org/3';
 const playBtn = document.getElementById('playBtn');
 
 const getGenres = () => {
