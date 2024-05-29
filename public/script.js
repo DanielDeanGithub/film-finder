@@ -9,8 +9,8 @@ const getGenres = async () => {
   try {
     
   } catch (error) {
-    
-  }
+    console.log(error);
+  };
 };
 
 const getMovies = () => {
