@@ -7,7 +7,7 @@ const getGenres = async () => {
   const requestParams = "?api_key=" + tmdbKey;
   const urlToFetch = tmdbBaseUrl + genreRequestEndpoint + requestParams;
   try {
-    
+    const response = await fetch(urlToFetch)
   } catch (error) {
     console.log(error);
   };
