@@ -13,6 +13,7 @@ const getGenres = async () => {
       console.log(jsonResponse);
       const genres = jsonResponse['genres'];
       console.log(genres);
+      return genres;
     };
   } catch (error) {
     console.log(error);
