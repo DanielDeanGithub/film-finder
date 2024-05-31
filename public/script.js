@@ -24,6 +24,7 @@ const getMovies = () => {
   const selectedGenre = getSelectedGenre();
   const discoverMovieEndpoint = "/discover/movie";
   const requestParams = `?api_key=${tmdbKey}&with_genres${selectedGenre}`;
+  const urlToFetch = tmdbBaseUrl + discoverMovieEndpoint + requestParams;
 };
 
 const getMovieInfo = () => {
