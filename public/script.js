@@ -22,7 +22,7 @@ const getGenres = async () => {
 
 const getMovies = () => {
   const selectedGenre = getSelectedGenre();
-  
+  const discoverMovieEndpoint = "/discover/movie";
 };
 
 const getMovieInfo = () => {
