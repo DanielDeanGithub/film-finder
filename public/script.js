@@ -10,9 +10,9 @@ const getGenres = async () => {
     const response = await fetch(urlToFetch);
     if (response.ok) {
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
+      //console.log(jsonResponse);
       const genres = jsonResponse['genres'];
-      console.log(genres);
+      //console.log(genres);
       return genres;
     };
   } catch (error) {
