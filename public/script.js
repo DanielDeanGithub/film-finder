@@ -11,6 +11,7 @@ const getGenres = async () => {
     if (response.ok) {
       const jsonResponse = await response.json();
       console.log(jsonResponse);
+      const genres = jsonResponse['genres'];
     };
   } catch (error) {
     console.log(error);
