@@ -29,6 +29,9 @@ const getMovies = async () => {
 
   try {
     const response = await fetch(urlToFetch);
+    if (response.ok) {
+      
+    }
   } catch (error) {
     console.log(error);
   };
