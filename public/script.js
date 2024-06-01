@@ -31,6 +31,7 @@ const getMovies = async () => {
     const response = await fetch(urlToFetch);
     if (response.ok) {
       const jsonResponse = await response.json();
+      console.log(jsonResponse);
     }
   } catch (error) {
     console.log(error);
