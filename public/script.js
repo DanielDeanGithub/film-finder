@@ -33,6 +33,7 @@ const getMovies = async () => {
       const jsonResponse = await response.json();
       console.log(jsonResponse);
       const movies = jsonResponse['results'];
+      console.log(movies);
     }
   } catch (error) {
     console.log(error);
