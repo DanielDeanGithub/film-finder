@@ -34,6 +34,7 @@ const getMovies = async () => {
       console.log(jsonResponse);
       const movies = jsonResponse['results'];
       console.log(movies);
+      return movies;
     }
   } catch (error) {
     console.log(error);
