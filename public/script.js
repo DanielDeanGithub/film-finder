@@ -29,8 +29,8 @@ const getMovies = async () => {
   try {
     
   } catch (error) {
-    
-  }
+    console.log(error);
+  };
 };
 
 const getMovieInfo = () => {
