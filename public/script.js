@@ -48,6 +48,7 @@ const getMovieInfo = async (movie) => {
   const urlToFetch = tmdbBaseUrl + movieEndpoint + requestParams;
 
   try {
+    const response = await fetch(urlToFetch);
     
   } catch (error) {
     console.log(error);
