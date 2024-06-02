@@ -49,7 +49,9 @@ const getMovieInfo = async (movie) => {
 
   try {
     const response = await fetch(urlToFetch);
-    
+    if (response.ok) {
+
+    }    
   } catch (error) {
     console.log(error);
   };
