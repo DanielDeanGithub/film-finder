@@ -43,6 +43,7 @@ const getMovies = async () => {
 
 const getMovieInfo = (movie) => {
   const movieId = movie['id'];
+  const movieEndpoint = `/movie/${movieId}`;
 };
 
 // Gets a list of movies and ultimately displays the info of a random movie from the list
