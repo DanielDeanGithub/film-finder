@@ -42,7 +42,7 @@ const getMovies = async () => {
 };
 
 const getMovieInfo = (movie) => {
-
+  const movieId = movie['id'];
 };
 
 // Gets a list of movies and ultimately displays the info of a random movie from the list
