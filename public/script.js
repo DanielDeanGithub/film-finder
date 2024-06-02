@@ -4,7 +4,7 @@ const playBtn = document.getElementById('playBtn');
 
 const getGenres = async () => {
   const genreRequestEndpoint = "/genre/movie/list";
-  const requestParams = "?api_key=" + tmdbKey;
+  const requestParams = `?api_key=${tmdbKey}`;
   const urlToFetch = tmdbBaseUrl + genreRequestEndpoint + requestParams;
 
   try {
@@ -44,6 +44,7 @@ const getMovies = async () => {
 const getMovieInfo = async (movie) => {
   const movieId = movie['id'];
   const movieEndpoint = `/movie/${movieId}`;
+  const requestParams = `?api_key=${tmdbKey}`;
 };
 
 // Gets a list of movies and ultimately displays the info of a random movie from the list
