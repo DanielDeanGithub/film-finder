@@ -65,6 +65,7 @@ const showRandomMovie = async () => {
     clearCurrentMovie();
   };
 
+  const movies = await getMovies();
 };
 
 getGenres().then(populateGenreDropdown);
