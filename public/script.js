@@ -41,7 +41,7 @@ const getMovies = async () => {
   };
 };
 
-const getMovieInfo = () => {
+const getMovieInfo = (movie) => {
 
 };
 
