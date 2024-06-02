@@ -41,7 +41,7 @@ const getMovies = async () => {
   };
 };
 
-const getMovieInfo = (movie) => {
+const getMovieInfo = async (movie) => {
   const movieId = movie['id'];
   const movieEndpoint = `/movie/${movieId}`;
 };
