@@ -50,8 +50,8 @@ const getMovieInfo = async (movie) => {
   try {
     
   } catch (error) {
-    
-  }
+    console.log(error);
+  };
 };
 
 // Gets a list of movies and ultimately displays the info of a random movie from the list
