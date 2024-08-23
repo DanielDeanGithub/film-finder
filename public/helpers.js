@@ -37,8 +37,8 @@ const clearCurrentMovie = () => {
 // After liking a movie, clears the current movie from the screen and gets another random movie
 const likeMovie = ({title, id}) => {
     likedMovies.push([title, id]);
-    
-    document.getElementById('likeList').innerHTML = `<ul id="likedList">${likedMovies.map(e => `<li id=${e[1]}>${e[0]}</li>`)}</ul>`
+    const movieList = likedMovies.map(e => `<li id=${e[1]}>${e[0]}</li>`).join('');    
+    document.getElementById('likeList').innerHTML = `<ul id="likedList">${movieList}</ul>`
     clearCurrentMovie();
     showRandomMovie();
 };
