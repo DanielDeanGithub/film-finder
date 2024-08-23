@@ -1,3 +1,5 @@
+const likedMovies = [];
+
 // Populate dropdown menu with all the available genres
 const populateGenreDropdown = (genres) => {
     const select = document.getElementById('genres')
@@ -33,9 +35,7 @@ const clearCurrentMovie = () => {
 }
 
 // After liking a movie, clears the current movie from the screen and gets another random movie
-const likeMovie = (target) => {
-    const movie = target;
-
+const likeMovie = (movie) => {
     console.log(movie);
     document.getElementById('likeList').innerHTML = movie;
     clearCurrentMovie();
@@ -117,6 +117,6 @@ const displayMovie = (movieInfo) => {
     movieTextDiv.appendChild(overviewText);
   
     showBtns();
-    likeBtn.onclick = likeMovie;
-    dislikeBtn.onclick = dislikeMovie;
+    likeBtn.onclick = () => likeMovie(movieInfo.title);
+    dislikeBtn.onclick = () => dislikeMovie(movieInfo.title);
 };
