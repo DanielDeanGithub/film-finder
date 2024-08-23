@@ -25,13 +25,19 @@ const showBtns = () => {
 // Clear the current movie from the screen
 const clearCurrentMovie = () => {
     const moviePosterDiv = document.getElementById('moviePoster');
+    const movieReleaseDiv = document.getElementById('movieRelease');
     const movieTextDiv = document.getElementById('movieText');
-    moviePosterDiv.innerHTML = '';
-    movieTextDiv.innerHTML = '';
+
+    const movieDetails = [moviePosterDiv, movieRelease, movieTextDiv];
+    movieDetails.forEach(e => e.innerHTML = '');
 }
 
 // After liking a movie, clears the current movie from the screen and gets another random movie
-const likeMovie = () => {
+const likeMovie = (target) => {
+    const movie = target;
+
+    console.log(movie);
+    document.getElementById('likeList').innerHTML = movie;
     clearCurrentMovie();
     showRandomMovie();
 };
@@ -71,6 +77,15 @@ const createMovieOverview = (overview) => {
     return overviewParagraph;
 };
 
+// Create HTML for movie overview
+const createMovieRelease = (overview) => {
+    const overviewParagraph = document.createElement('p');
+    overviewParagraph.setAttribute('id', 'movieReleaseDate');
+    overviewParagraph.innerHTML = overview;
+  
+    return overviewParagraph;
+};
+
 // Returns a random movie from the first page of movies
 const getRandomMovie = (movies) => {
     const randomIndex = Math.floor(Math.random() * movies.length);
@@ -81,17 +96,23 @@ const getRandomMovie = (movies) => {
 // Uses the DOM to create HTML to display the movie
 const displayMovie = (movieInfo) => {
     const moviePosterDiv = document.getElementById('moviePoster');
+    const movieReleaseDiv = document.getElementById('movieRelease');
     const movieTextDiv = document.getElementById('movieText');
     const likeBtn = document.getElementById('likeBtn');
     const dislikeBtn = document.getElementById('dislikeBtn');
   
+    console.log(movieInfo);
+    console.log(movieInfo.release_date);
+
     // Create HTML content containing movie info
     const moviePoster = createMoviePoster(movieInfo.poster_path);
+    const movieRelease = createMovieRelease(movieInfo.release_date);
     const titleHeader = createMovieTitle(movieInfo.title);
     const overviewText = createMovieOverview(movieInfo.overview);
   
     // Append title, poster, and overview to page
     moviePosterDiv.appendChild(moviePoster);
+    movieReleaseDiv.appendChild(movieRelease);
     movieTextDiv.appendChild(titleHeader);
     movieTextDiv.appendChild(overviewText);
   
