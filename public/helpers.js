@@ -79,11 +79,11 @@ const createMovieOverview = (overview) => {
 
 // Create HTML for movie overview
 const createMovieRelease = (overview) => {
-    const overviewParagraph = document.createElement('p');
-    overviewParagraph.setAttribute('id', 'movieReleaseDate');
-    overviewParagraph.innerHTML = overview;
+    const releaseInfo = document.createElement('p');
+    releaseInfo.setAttribute('id', 'movieReleaseDate');
+    releaseInfo.innerHTML = "Release date: " + overview;
   
-    return overviewParagraph;
+    return releaseInfo;
 };
 
 // Returns a random movie from the first page of movies
