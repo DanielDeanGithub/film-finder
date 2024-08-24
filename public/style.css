@@ -41,7 +41,7 @@ img#moviePoster {
     margin:  auto;
 }
 
-#movieText, #movieRelease {
+#movieText, #movieRelease, #movieLists {
     font-family: 'Questrial';
     color: #FEFBEA;
     line-height: 1.25;
@@ -95,3 +95,19 @@ select {
     background-color: #c74a4a;
     color: #910000;
 }
+
+#movieLists {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#liked, #disliked {
+    padding: 10px;
+}
+
+#likedList, #dislikedList {
+    padding: 0;
+    overflow: auto;
+    max-height: 300px;
+}
+    
