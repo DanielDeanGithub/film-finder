@@ -30,12 +30,13 @@ const clearCurrentMovie = () => {
     const movieReleaseDiv = document.getElementById('movieRelease');
     const movieTextDiv = document.getElementById('movieText');
 
-    const movieDetails = [moviePosterDiv, movieRelease, movieTextDiv];
+    const movieDetails = [moviePosterDiv, movieReleaseDiv, movieTextDiv];
     movieDetails.forEach(e => e.innerHTML = '');
 }
 
 // After liking a movie, clears the current movie from the screen and gets another random movie
 const likeMovie = ({title, id}) => {
+    document.getElementById('liked').removeAttribute('hidden');
     likedMovies.push([title, id]);
     const movieList = likedMovies.map(e => `<li id=${e[1]}>${e[0]}</li>`).join('');    
     document.getElementById('likedList').innerHTML = movieList;
@@ -45,6 +46,8 @@ const likeMovie = ({title, id}) => {
 
 // After disliking a movie, clears the current movie from the screen and gets another random movie
 const dislikeMovie = () => {
+    document.getElementById('disliked').removeAttribute('hidden');
+
     clearCurrentMovie();
     showRandomMovie();
 };
