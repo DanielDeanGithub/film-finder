@@ -1,4 +1,5 @@
 const likedMovies = [];
+const dislikedMovies = [];
 
 // Populate dropdown menu with all the available genres
 const populateGenreDropdown = (genres) => {
@@ -45,9 +46,11 @@ const likeMovie = ({title, id}) => {
 };
 
 // After disliking a movie, clears the current movie from the screen and gets another random movie
-const dislikeMovie = () => {
+const dislikeMovie = ({title, id}) => {
     document.getElementById('disliked').removeAttribute('hidden');
-
+    dislikedMovies.push([title, id]);
+    const movieList = dislikedMovies.map(e => `<li id=${e[1]}>${e[0]}</li>`).join('');    
+    document.getElementById('dislikedList').innerHTML = movieList;
     clearCurrentMovie();
     showRandomMovie();
 };
