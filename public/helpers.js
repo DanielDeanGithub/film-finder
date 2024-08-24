@@ -38,7 +38,7 @@ const clearCurrentMovie = () => {
 const likeMovie = ({title, id}) => {
     likedMovies.push([title, id]);
     const movieList = likedMovies.map(e => `<li id=${e[1]}>${e[0]}</li>`).join('');    
-    document.getElementById('likeList').innerHTML = `<ul id="likedList">${movieList}</ul>`
+    document.getElementById('movieLists').innerHTML = `<ul id="likedList">${movieList}</ul>`
     clearCurrentMovie();
     showRandomMovie();
 };
