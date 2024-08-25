@@ -36,7 +36,13 @@ const clearCurrentMovie = () => {
 };
 
 const removeItem = (id, list) => {
-    list ? likedMovies.splice(e => e.id === id) : dislikedMovies.splice(e => e.id === id);
+    if (list) {
+        const index = likedMovies.findIndex(e => e.id === id)
+        likedMovies.splice(index, 1);
+    } else {
+        const index = dislikedMovies.findIndex(e => e.id === id)
+        dislikedMovies.splice(index, 1);
+    }       
     refreshLists();
 };
 
