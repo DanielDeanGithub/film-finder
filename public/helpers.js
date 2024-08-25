@@ -35,12 +35,16 @@ const clearCurrentMovie = () => {
     movieDetails.forEach(e => e.innerHTML = '');
 };
 
+const removeItem = (id, list) => {
+    list ? likedMovies.splice(e => e.id === id) : dislikedMovies.splice(e => e.id === id);
+};
+
 const refreshLists = () => {
     const likedMovieList = likedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');  
     likedMovieList.length > 0 ? document.getElementById('liked').removeAttribute('hidden') : document.getElementById('liked').setAttribute('hidden', '');
     document.getElementById('likedList').innerHTML = likedMovieList; 
 
-    const dislikedMovieList = dislikedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');    
+    const dislikedMovieList = dislikedMovies.map(e => `<li id=${e.id}>${e.title} </li>`).join('');    
     dislikedMovieList.length > 0 ? document.getElementById('disliked').removeAttribute('hidden') : document.getElementById('disliked').setAttribute('hidden', '');
     document.getElementById('dislikedList').innerHTML = dislikedMovieList;
 };
@@ -52,7 +56,7 @@ const likeMovie = ({title, id}) => {
 
     // If movie has been disliked previously remove it from disliked list
     if(dislikedMovies.find(e => e.id === id)) {
-        dislikedMovies.splice(e => e.id === id);
+        removeItem(id, false);
         refreshLists();       
     }
 
@@ -70,16 +74,16 @@ const likeMovie = ({title, id}) => {
 const dislikeMovie = ({title, id}) => {
     clearCurrentMovie();
     showRandomMovie();
-    document.getElementById('disliked').removeAttribute('hidden');
 
     // If movie has been liked previously remove it from liked list
     if(likedMovies.find(e => e.id === id)) {
-        likedMovies.splice(e => e.id === id);
+        removeItem(id, true);
         refreshLists();       
     }
 
     // If movie has already been disliked then return
     if(dislikedMovies.find(e => e.id === id)) return;
+    
     dislikedMovies.push({
         title: title, 
         id: id
