@@ -36,11 +36,13 @@ const clearCurrentMovie = () => {
 };
 
 const removeItem = (id, list) => {
+    console.log('clicked')
     list ? likedMovies.splice(e => e.id === id) : dislikedMovies.splice(e => e.id === id);
+    refreshLists();
 };
 
 const refreshLists = () => {
-    const likedMovieList = likedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');  
+    const likedMovieList = likedMovies.map(e => `<li id=${e.id}>${e.title} <button class="remove" onclick="removeItem(${e.id},true);">X</button></li>`).join('');  
     likedMovieList.length > 0 ? document.getElementById('liked').removeAttribute('hidden') : document.getElementById('liked').setAttribute('hidden', '');
     document.getElementById('likedList').innerHTML = likedMovieList; 
 
@@ -83,7 +85,7 @@ const dislikeMovie = ({title, id}) => {
 
     // If movie has already been disliked then return
     if(dislikedMovies.find(e => e.id === id)) return;
-    
+
     dislikedMovies.push({
         title: title, 
         id: id
