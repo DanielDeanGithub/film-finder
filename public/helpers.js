@@ -37,22 +37,29 @@ const clearCurrentMovie = () => {
 
 // After liking a movie, clears the current movie from the screen and gets another random movie
 const likeMovie = ({title, id}) => {
-    document.getElementById('liked').removeAttribute('hidden');
-    likedMovies.push([title, id]);
-    const movieList = likedMovies.map(e => `<li id=${e[1]}>${e[0]}</li>`).join('');    
-    document.getElementById('likedList').innerHTML = movieList;
     clearCurrentMovie();
     showRandomMovie();
+    if (likeMovie)
+    document.getElementById('liked').removeAttribute('hidden');
+    likedMovies.push({
+        title: title, 
+        id: id
+    });
+    const movieList = likedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');    
+    document.getElementById('likedList').innerHTML = movieList;
 };
 
 // After disliking a movie, clears the current movie from the screen and gets another random movie
 const dislikeMovie = ({title, id}) => {
-    document.getElementById('disliked').removeAttribute('hidden');
-    dislikedMovies.push([title, id]);
-    const movieList = dislikedMovies.map(e => `<li id=${e[1]}>${e[0]}</li>`).join('');    
-    document.getElementById('dislikedList').innerHTML = movieList;
     clearCurrentMovie();
     showRandomMovie();
+    document.getElementById('disliked').removeAttribute('hidden');
+    dislikedMovies.push({
+        title: title, 
+        id: id
+    });
+    const movieList = dislikedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');    
+    document.getElementById('dislikedList').innerHTML = movieList;
 };
 
 // Create HTML for movie poster
