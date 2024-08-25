@@ -47,8 +47,15 @@ const refreshLists = () => {
 const likeMovie = ({title, id}) => {
     clearCurrentMovie();
     showRandomMovie();
-    if (likeMovie)
     document.getElementById('liked').removeAttribute('hidden');
+
+    // If movie has been liked previously remove it from liked list
+    if(dislikedMovies.find(e => e.id === id)) {
+        dislikedMovies.splice(e => e.id === id);
+        refreshLists();       
+    }
+
+
     likedMovies.push({
         title: title, 
         id: id
