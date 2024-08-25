@@ -91,7 +91,7 @@ select {
     color: darkgreen;
 }
 
-#dislikeBtn {
+#dislikeBtn, .remove {
     background-color: #c74a4a;
     color: #910000;
 }
@@ -110,4 +110,10 @@ select {
     overflow: auto;
     max-height: 300px;
 }
-    
+
+.remove {
+    border: none;
+    cursor:  pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
