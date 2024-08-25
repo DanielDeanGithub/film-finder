@@ -54,6 +54,11 @@ const dislikeMovie = ({title, id}) => {
     clearCurrentMovie();
     showRandomMovie();
     document.getElementById('disliked').removeAttribute('hidden');
+
+    console.log(dislikedMovies.find(e => e.id === id));
+    // If movie has already been dislike then return
+    if(dislikedMovies.find(e => e.id === id)) return;
+
     dislikedMovies.push({
         title: title, 
         id: id
@@ -115,9 +120,6 @@ const displayMovie = (movieInfo) => {
     const likeBtn = document.getElementById('likeBtn');
     const dislikeBtn = document.getElementById('dislikeBtn');
   
-    console.log(movieInfo);
-    console.log(movieInfo.release_date);
-
     // Create HTML content containing movie info
     const moviePoster = createMoviePoster(movieInfo.poster_path);
     const movieRelease = createMovieRelease(movieInfo.release_date);
