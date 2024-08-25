@@ -42,11 +42,11 @@ const removeItem = (id, list) => {
 };
 
 const refreshLists = () => {
-    const likedMovieList = likedMovies.map(e => `<li id=${e.id}>${e.title} <button class="remove" onclick="removeItem(${e.id},true);">X</button></li>`).join('');  
+    const likedMovieList = likedMovies.map(e => `<li id=${e.id}>${e.title}<button class="remove" onclick="removeItem(${e.id},true);">X</button></li>`).join('');  
     likedMovieList.length > 0 ? document.getElementById('liked').removeAttribute('hidden') : document.getElementById('liked').setAttribute('hidden', '');
     document.getElementById('likedList').innerHTML = likedMovieList; 
 
-    const dislikedMovieList = dislikedMovies.map(e => `<li id=${e.id}>${e.title} </li>`).join('');    
+    const dislikedMovieList = dislikedMovies.map(e => `<li id=${e.id}>${e.title}<button class="remove" onclick="removeItem(${e.id},false);">X</button></li>`).join('');    
     dislikedMovieList.length > 0 ? document.getElementById('disliked').removeAttribute('hidden') : document.getElementById('disliked').setAttribute('hidden', '');
     document.getElementById('dislikedList').innerHTML = dislikedMovieList;
 };
