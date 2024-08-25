@@ -128,10 +128,11 @@ const createMovieOverview = (overview) => {
 };
 
 // Create HTML for movie overview
-const createMovieRelease = (overview) => {
+const createMovieRelease = (date) => {
+    const locateDate = new Date(date).toLocaleDateString();
     const releaseInfo = document.createElement('p');
     releaseInfo.setAttribute('id', 'movieReleaseDate');
-    releaseInfo.innerHTML = "Release date: " + overview;
+    releaseInfo.innerHTML = "Release date: " + locateDate;
   
     return releaseInfo;
 };
