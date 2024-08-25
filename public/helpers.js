@@ -36,7 +36,6 @@ const clearCurrentMovie = () => {
 };
 
 const removeItem = (id, list) => {
-    console.log('clicked')
     list ? likedMovies.splice(e => e.id === id) : dislikedMovies.splice(e => e.id === id);
     refreshLists();
 };
