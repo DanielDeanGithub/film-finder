@@ -49,12 +49,14 @@ const likeMovie = ({title, id}) => {
     showRandomMovie();
     document.getElementById('liked').removeAttribute('hidden');
 
-    // If movie has been liked previously remove it from liked list
+    // If movie has been disliked previously remove it from disliked list
     if(dislikedMovies.find(e => e.id === id)) {
         dislikedMovies.splice(e => e.id === id);
         refreshLists();       
     }
 
+    // If movie has already been liked then return
+    if(likedMovies.find(e => e.id === id)) return;
 
     likedMovies.push({
         title: title, 
@@ -75,7 +77,7 @@ const dislikeMovie = ({title, id}) => {
         refreshLists();       
     }
 
-    // If movie has already been dislike then return
+    // If movie has already been disliked then return
     if(dislikedMovies.find(e => e.id === id)) return;
     dislikedMovies.push({
         title: title, 
