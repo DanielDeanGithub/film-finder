@@ -33,7 +33,15 @@ const clearCurrentMovie = () => {
 
     const movieDetails = [moviePosterDiv, movieReleaseDiv, movieTextDiv];
     movieDetails.forEach(e => e.innerHTML = '');
-}
+};
+
+const refreshLists = () => {
+    const likedMovieList = likedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');    
+    document.getElementById('likedList').innerHTML = likedMovieList; 
+
+    const dislikedMovieList = dislikedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');    
+    document.getElementById('dislikedList').innerHTML = dislikedMovieList;
+};
 
 // After liking a movie, clears the current movie from the screen and gets another random movie
 const likeMovie = ({title, id}) => {
@@ -45,8 +53,7 @@ const likeMovie = ({title, id}) => {
         title: title, 
         id: id
     });
-    const movieList = likedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');    
-    document.getElementById('likedList').innerHTML = movieList;
+    refreshLists();
 };
 
 // After disliking a movie, clears the current movie from the screen and gets another random movie
@@ -55,16 +62,19 @@ const dislikeMovie = ({title, id}) => {
     showRandomMovie();
     document.getElementById('disliked').removeAttribute('hidden');
 
-    console.log(dislikedMovies.find(e => e.id === id));
+    // If movie has been liked previously remove it from liked list
+    if(likedMovies.find(e => e.id === id)) {
+        likedMovies.splice(e => e.id === id);
+        refreshLists();       
+    }
+
     // If movie has already been dislike then return
     if(dislikedMovies.find(e => e.id === id)) return;
-
     dislikedMovies.push({
         title: title, 
         id: id
     });
-    const movieList = dislikedMovies.map(e => `<li id=${e.id}>${e.title}</li>`).join('');    
-    document.getElementById('dislikedList').innerHTML = movieList;
+    refreshLists();
 };
 
 // Create HTML for movie poster
