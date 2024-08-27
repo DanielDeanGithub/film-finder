@@ -47,17 +47,17 @@ const removeItem = (id, list) => {
 };
 
 const refreshLists = () => {
-    const likedMovieList = likedMovies.map(e => `<li id=${e.id}>${e.title}<button class="remove" onclick="removeItem(${e.id},true);">X</button></li>`).join('');  
+    const likedMovieList = likedMovies.map(e => `<li id=${e.id}><a href="https://www.imdb.com/title/${e.imdb}">${e.title}</a><button class="remove" onclick="removeItem(${e.id},true);">X</button></li>`).join('');  
     likedMovieList.length > 0 ? document.getElementById('liked').removeAttribute('hidden') : document.getElementById('liked').setAttribute('hidden', '');
     document.getElementById('likedList').innerHTML = likedMovieList; 
 
-    const dislikedMovieList = dislikedMovies.map(e => `<li id=${e.id}>${e.title}<button class="remove" onclick="removeItem(${e.id},false);">X</button></li>`).join('');    
+    const dislikedMovieList = dislikedMovies.map(e => `<li id=${e.id}><a href="https://www.imdb.com/title/${e.imdb}">${e.title}</a><button class="remove" onclick="removeItem(${e.id},false);">X</button></li>`).join('');    
     dislikedMovieList.length > 0 ? document.getElementById('disliked').removeAttribute('hidden') : document.getElementById('disliked').setAttribute('hidden', '');
     document.getElementById('dislikedList').innerHTML = dislikedMovieList;
 };
 
 // After liking a movie, clears the current movie from the screen and gets another random movie
-const likeMovie = ({title, id}) => {
+const likeMovie = ({title, id, imdb_id}) => {
     clearCurrentMovie();
     showRandomMovie();
 
@@ -72,13 +72,14 @@ const likeMovie = ({title, id}) => {
 
     likedMovies.push({
         title: title, 
-        id: id
+        id: id,
+        imdb: imdb_id
     });
     refreshLists();
 };
 
 // After disliking a movie, clears the current movie from the screen and gets another random movie
-const dislikeMovie = ({title, id}) => {
+const dislikeMovie = ({title, id, imdb_id}) => {
     clearCurrentMovie();
     showRandomMovie();
 
@@ -93,7 +94,8 @@ const dislikeMovie = ({title, id}) => {
 
     dislikedMovies.push({
         title: title, 
-        id: id
+        id: id,
+        imdb: imdb_id
     });
     refreshLists();
 };
@@ -167,4 +169,6 @@ const displayMovie = (movieInfo) => {
     showBtns();
     likeBtn.onclick = () => likeMovie(movieInfo);
     dislikeBtn.onclick = () => dislikeMovie(movieInfo);
+
+    console.log(movieInfo);
 };
