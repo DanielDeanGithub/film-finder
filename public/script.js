@@ -11,9 +11,7 @@ const getGenres = async () => {
     const response = await fetch(urlToFetch);
     if (response.ok) {
       const jsonResponse = await response.json();
-      //console.log(jsonResponse);
       const genres = jsonResponse['genres'];
-      //console.log(genres);
       return genres;
     };
   } catch (error) {
@@ -25,16 +23,14 @@ const getMovies = async () => {
   const selectedGenre = getSelectedGenre();
   const discoverMovieEndpoint = "/discover/movie";
   const randomPage = Math.floor(Math.random() * 500); // 500 is the limit for page numbers
-  const requestParams = `?api_key=${tmdbKey}&with_genres${selectedGenre}&page=${randomPage}`;
+  const requestParams = `?api_key=${tmdbKey}&with_genres=${selectedGenre}&page=${randomPage}`;
   const urlToFetch = tmdbBaseUrl + discoverMovieEndpoint + requestParams;
-
+   
   try {
     const response = await fetch(urlToFetch);
     if (response.ok) {
       const jsonResponse = await response.json();
-      //console.log(jsonResponse);
       const movies = jsonResponse['results'];
-      //console.log(movies);
       return movies;
     }
   } catch (error) {
