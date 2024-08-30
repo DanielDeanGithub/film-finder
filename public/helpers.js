@@ -152,6 +152,7 @@ const createMovieGenres  = (genres) => {
 const createHomepageLink = (homepage) => {
     const homepageLink = document.createElement('a');
     homepageLink.setAttribute('href', homepage);
+    homepageLink.setAttribute('id', 'movieHomepage');
     homepageLink.innerHTML = "Movie Homepage";
   
     return homepageLink;
