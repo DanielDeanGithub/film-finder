@@ -184,7 +184,7 @@ const displayMovie = (movieInfo) => {
     movieTextDiv.appendChild(titleHeader);
     movieTextDiv.appendChild(movieRelease);
     movieTextDiv.appendChild(movieGenres);
-    movieTextDiv.appendChild(homepageText);
+    if (movieInfo.homepage.length > 0) movieTextDiv.appendChild(homepageText);
     movieTextDiv.appendChild(overviewText);
   
     showBtns();
