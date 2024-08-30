@@ -168,12 +168,14 @@ const displayMovie = (movieInfo) => {
     const movieGenres = createMovieGenres(movieInfo.genres);
     const titleHeader = createMovieTitle(movieInfo.title);
     const overviewText = createMovieOverview(movieInfo.overview);
+    const homepageText = createHomepageText(movieInfo.homepage);
   
     // Append title, poster, and overview to page
     moviePosterDiv.appendChild(moviePoster);
     movieTextDiv.appendChild(titleHeader);
     movieTextDiv.appendChild(movieRelease);
     movieTextDiv.appendChild(movieGenres);
+    if (homepageText.length > 0) movieTextDiv.appendChild(homepageText);
     movieTextDiv.appendChild(overviewText);
   
     showBtns();
