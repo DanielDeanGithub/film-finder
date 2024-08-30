@@ -148,6 +148,15 @@ const createMovieGenres  = (genres) => {
     return genresInfo;
 };
 
+// Create HTML for movie homepage link
+const createHomepageLink = (homepage) => {
+    const homepageLink = document.createElement('a');
+    homepageLink.setAttribute('href', homepage);
+    homepageLink.innerHTML = "Movie Homepage";
+  
+    return homepageLink;
+};
+
 // Returns a random movie from the first page of movies
 const getRandomMovie = (movies) => {
     const randomIndex = Math.floor(Math.random() * movies.length);
@@ -168,14 +177,14 @@ const displayMovie = (movieInfo) => {
     const movieGenres = createMovieGenres(movieInfo.genres);
     const titleHeader = createMovieTitle(movieInfo.title);
     const overviewText = createMovieOverview(movieInfo.overview);
-    const homepageText = createHomepageText(movieInfo.homepage);
+    const homepageText = createHomepageLink(movieInfo.homepage);
   
     // Append title, poster, and overview to page
     moviePosterDiv.appendChild(moviePoster);
     movieTextDiv.appendChild(titleHeader);
     movieTextDiv.appendChild(movieRelease);
     movieTextDiv.appendChild(movieGenres);
-    if (homepageText.length > 0) movieTextDiv.appendChild(homepageText);
+    movieTextDiv.appendChild(homepageText);
     movieTextDiv.appendChild(overviewText);
   
     showBtns();
