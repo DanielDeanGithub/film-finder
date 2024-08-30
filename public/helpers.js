@@ -28,10 +28,8 @@ const showBtns = () => {
 // Clear the current movie from the screen
 const clearCurrentMovie = () => {
     const moviePosterDiv = document.getElementById('moviePoster');
-    const movieReleaseDiv = document.getElementById('movieRelease');
     const movieTextDiv = document.getElementById('movieText');
-
-    const movieDetails = [moviePosterDiv, movieReleaseDiv, movieTextDiv];
+    const movieDetails = [moviePosterDiv, movieTextDiv];
     movieDetails.forEach(e => e.innerHTML = '');
 };
 
@@ -149,7 +147,6 @@ const getRandomMovie = (movies) => {
 // Uses the DOM to create HTML to display the movie
 const displayMovie = (movieInfo) => {
     const moviePosterDiv = document.getElementById('moviePoster');
-    const movieReleaseDiv = document.getElementById('movieRelease');
     const movieTextDiv = document.getElementById('movieText');
     const likeBtn = document.getElementById('likeBtn');
     const dislikeBtn = document.getElementById('dislikeBtn');
@@ -162,8 +159,8 @@ const displayMovie = (movieInfo) => {
   
     // Append title, poster, and overview to page
     moviePosterDiv.appendChild(moviePoster);
-    movieReleaseDiv.appendChild(movieRelease);
     movieTextDiv.appendChild(titleHeader);
+    movieTextDiv.appendChild(movieRelease);
     movieTextDiv.appendChild(overviewText);
   
     showBtns();

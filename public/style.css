@@ -41,15 +41,20 @@ img#moviePoster {
     margin:  auto;
 }
 
-#movieText, #movieRelease, #movieLists {
+#movieText, #movieLists {
     font-family: 'Questrial';
     color: #FEFBEA;
     line-height: 1.25;
 }
 
-#movieTitle, #movieOverview, #movieReleaseDate {
+#movieTitle, #movieOverview {
     padding:  32px;
 }
+
+#movieReleaseDate {
+    padding: 0 32px;
+}
+
 
 #playBtn {
     margin-top: 20px;
