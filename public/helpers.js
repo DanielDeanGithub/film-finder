@@ -139,7 +139,7 @@ const createMovieRelease = (date) => {
 
 // Create HTML for movie genres
 const createMovieGenres  = (genres) => {
-    const genresList = genres.join(",");
+    const genresList = genres.map(e => e.name).join(", ");
 
     const genresInfo = document.createElement('p');
     genresInfo.setAttribute('id', 'movieReleaseDate');
