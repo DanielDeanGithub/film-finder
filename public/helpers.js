@@ -127,7 +127,7 @@ const createMovieOverview = (overview) => {
     return overviewParagraph;
 };
 
-// Create HTML for movie overview
+// Create HTML for movie release date
 const createMovieRelease = (date) => {
     const locateDate = new Date(date).toLocaleDateString();
     const releaseInfo = document.createElement('p');
@@ -135,6 +135,15 @@ const createMovieRelease = (date) => {
     releaseInfo.innerHTML = "Release date: " + locateDate;
   
     return releaseInfo;
+};
+
+// Create HTML for movie genres
+const createMovieGenres  = (genres) => {
+    const genresInfo = document.createElement('p');
+    genresInfo.setAttribute('id', 'movieReleaseDate');
+    genresInfo.innerHTML = "Genres: " + locateDate;
+  
+    return genresInfo;
 };
 
 // Returns a random movie from the first page of movies
