@@ -139,9 +139,11 @@ const createMovieRelease = (date) => {
 
 // Create HTML for movie genres
 const createMovieGenres  = (genres) => {
+    const genresList = genres.join(",");
+
     const genresInfo = document.createElement('p');
     genresInfo.setAttribute('id', 'movieReleaseDate');
-    genresInfo.innerHTML = "Genres: " + locateDate;
+    genresInfo.innerHTML = "Genres: " + genresList;
   
     return genresInfo;
 };
