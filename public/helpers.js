@@ -180,8 +180,10 @@ const displayMovie = (movieInfo) => {
     const overviewText = createMovieOverview(movieInfo.overview);
     const homepageText = createHomepageLink(movieInfo.homepage);
   
+    //console.log(movieInfo);
+    
     // Append title, poster, and overview to page
-    moviePosterDiv.appendChild(moviePoster);
+    if (movieInfo.poster_path !== null) moviePosterDiv.appendChild(moviePoster);
     movieTextDiv.appendChild(titleHeader);
     movieTextDiv.appendChild(movieRelease);
     movieTextDiv.appendChild(movieGenres);
@@ -192,5 +194,5 @@ const displayMovie = (movieInfo) => {
     likeBtn.onclick = () => likeMovie(movieInfo);
     dislikeBtn.onclick = () => dislikeMovie(movieInfo);
 
-    console.log(movieInfo);
+    
 };
