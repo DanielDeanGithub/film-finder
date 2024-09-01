@@ -21,6 +21,8 @@ body {
 #movieInfo {
     width:  65%;
     margin:  32px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #movieInfo:after {
@@ -29,16 +31,21 @@ body {
     clear:  both;
 }
 
-#moviePoster, #movieText, #movieRelease {
+/* #moviePoster, #movieText, #movieRelease {
     width:  50%;
     float:  left;
+} */
+
+#moviePoster {
+    width: 100%;
+    margin: auto;
 }
 
 img#moviePoster {
-    width:  100%;
-    height:  auto;
-    display:  block;
-    margin:  auto;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
 }
 
 #movieText, #movieLists {
@@ -126,4 +133,10 @@ select {
 
 a {
     color: #fdc238;
+}
+
+@media screen and (min-width: 834px) {
+    #movieInfo {
+        flex-direction: row;        
+    }
 }
